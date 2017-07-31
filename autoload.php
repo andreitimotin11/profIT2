@@ -9,4 +9,5 @@ function __autoload($class)
 {
 	$className = str_replace('\\', '/', $class);
 	require __DIR__ . '/' . $className . '.php';
+	echo 'Ura!';
 }
