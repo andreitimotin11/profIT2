@@ -8,3 +8,5 @@
 require __DIR__ . '/autoload.php';
 
 $db = new \App\Db();
+//$db->execute('SELECT * from news');
+$res = $db->execute('CREATE TABLE foo(id SERIAL)');
