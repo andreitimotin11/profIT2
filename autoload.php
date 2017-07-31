@@ -7,5 +7,6 @@
  */
 function __autoload($class)
 {
-	require __DIR__ . '/' .str_replace('\\', '/', $class). '.php';
+	$className = str_replace('\\', '/', $class);
+	require __DIR__ . '/' . $className . '.php';
 }
