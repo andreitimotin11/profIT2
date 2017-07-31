@@ -1,12 +1,12 @@
 <?php
-
+namespace App;
 /**
  * Created by PhpStorm.
  * User: Andrei
  * Date: 31.07.2017
  * Time: 15:48
  */
-namespace App;
+
 class Db
 {
 	protected $dbh;
@@ -25,12 +25,12 @@ class Db
 		return $res;
 	}
 	
-	public function query($sql)
+	public function query($sql, $class)
 	{
 		$sth = $this->dbh->prepare($sql);
 		$res = $sth->execute();
-		if(false !== $res){
-			return $sth->fetchAll();
+		if (false !== $res) {
+			return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
 		}
 		return [];
 	}
