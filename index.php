@@ -18,6 +18,6 @@ $data =\App\Models\News::findAll();
 //var_dump($data);die;
 include __DIR__ . '/templates/news.php';
 //$users =\App\Models\User::findByID(1);
-$db = new \App\Db();
+$db =  \App\Db::instance();
 $db->execute('CREATE TABLE roo(id SERIAL)');
 //var_dump($users );

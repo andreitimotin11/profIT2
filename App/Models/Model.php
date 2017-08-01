@@ -17,7 +17,7 @@ abstract class Model
 	
 	public static function findAll()
 	{
-		$db = new Db();
+		$db = Db::instance();
 		return $db->query('SELECT * FROM ' . static::TABLE, static::class);
 	}
 //	В абстрактной модели добавьте метод public static findById($id).
@@ -27,7 +27,7 @@ abstract class Model
 	{
 		$query = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id ';
 		$arr = [':id' => $id];
-		$db = new Db();
+		$db = Db::instance();
 		$result = $db->query($query, static::class, $arr);
 		if($result){
 			return $result[0];
