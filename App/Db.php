@@ -10,25 +10,25 @@ namespace App;
 class Db
 {
 	protected $dbh;
-	
-	function __construct()
+
+public function __construct()
 	{
 		$this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
-		var_dump($this->dbh);
+//		var_dump($this->dbh);
 	}
 	
-	public function execute($sql)
+	public function execute($sql, $arr = [])
 	{
 		$sth = $this->dbh->prepare($sql);
 //		var_dump($sth);
-		$res = $sth->execute();
+		$res = $sth->execute($arr);
 		return $res;
 	}
 	
-	public function query($sql, $class)
+	public function query($sql, $class,$arr = [])
 	{
 		$sth = $this->dbh->prepare($sql);
-		$res = $sth->execute();
+		$res = $sth->execute($arr);
 		if (false !== $res) {
 			return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
 		}
