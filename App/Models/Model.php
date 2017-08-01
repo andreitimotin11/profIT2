@@ -14,7 +14,7 @@ use App\Db;
 abstract class Model
 {
 	const TABLE = '';
-	
+	public $id;
 	public static function findAll()
 	{
 		$db = Db::instance();
@@ -29,10 +29,38 @@ abstract class Model
 		$arr = [':id' => $id];
 		$db = Db::instance();
 		$result = $db->query($query, static::class, $arr);
-		if($result){
+		if ($result) {
 			return $result[0];
 		}
 		return false;
-		 
+		
+	}
+	public function isNew()
+	{
+		return empty($this->id);
+	}
+	public function insert()
+	{
+		if(!$this->isNew()){
+			return;
+		}
+		$columns = [];
+		$values = [];
+		foreach ($this as $k => $v) {
+			if('id'==$k){
+				continue;
+			}
+			$columns[] = $k;
+			$values[':'. $k] = $v;
+		}
+		var_dump($values);
+//		die;
+		$sql = 'INSERT INTO ' . static::TABLE . ' (' .
+			implode(',', $columns) . ' ) VALUES ( '.
+			implode(',', array_keys($values)) .
+			') ';
+		$db = Db::instance();
+		$db->execute($sql, $values);
+//		echo $sql;die;
 	}
 }

@@ -18,18 +18,18 @@ protected function __construct()
 //		var_dump($this->dbh);
 	}
 	
-	public function execute($sql, $arr = [])
+	public function execute($sql, $param = [])
 	{
 		$sth = $this->dbh->prepare($sql);
 //		var_dump($sth);
-		$res = $sth->execute($arr);
+		$res = $sth->execute($param);
 		return $res;
 	}
 	
-	public function query($sql, $class,$arr = [])
+	public function query($sql, $class,$param = [])
 	{
 		$sth = $this->dbh->prepare($sql);
-		$res = $sth->execute($arr);
+		$res = $sth->execute($param);
 		if (false !== $res) {
 			return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
 		}

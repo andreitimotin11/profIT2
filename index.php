@@ -12,7 +12,7 @@
 5. Каждая новость на главной странице должна быть снабжена ссылкой на страницу article.php?id=NNN, где NNN - номер этой новости. Разработайте полностью страницу article.php
 */
 require __DIR__ . '/autoload.php';
-
+/*
 $data =\App\Models\News::findAll();
 
 //var_dump($data);die;
@@ -20,4 +20,9 @@ include __DIR__ . '/templates/news.php';
 //$users =\App\Models\User::findByID(1);
 $db =  \App\Db::instance();
 $db->execute('CREATE TABLE roo(id SERIAL)');
-//var_dump($users );
+//var_dump($users );*/
+
+$user = new \App\Models\User();
+$user->name = 'Vasya';
+$user->email = 'v@pupkin.com';
+$user->insert();
