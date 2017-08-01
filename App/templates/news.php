@@ -27,7 +27,7 @@ foreach ($data as $article):
 	
 	?>
     <div class="news">
-        <a href="<?php echo 'http://profit/PHP2/article.php?id=' . $article->id; ?>"><?php echo $article->title; ?></a>
+        <a href="<?php echo 'http://profit/PHP1/7/www/article.php?id=' . $article->id; ?>"><?php echo $article->title; ?></a>
         <p> <?php echo $article->text; ?></p>
     </div>
 	
