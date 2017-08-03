@@ -9,7 +9,7 @@ require_once __DIR__ . '/autoload.php';
 
 $view = new \App\View();
 $view->title = 'News';
-$view->data = \App\Models\News::findAll();
+$view->news = \App\Models\News::findAll();
 $reason = trim($_GET['reason']);
 $id = trim($_GET['id']);
 if ($_POST['title']) {

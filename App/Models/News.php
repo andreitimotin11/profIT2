@@ -21,7 +21,19 @@ class News
 	{
 		// TODO: Implement __set() method.
 		if('author' == $name){
-			$this->data[$name] = $value;
+			$author = Author::findByID($this->author_id);
+			if(empty($author)){
+				$author = new Author();
+				$author->name = $value;
+				$author->save();
+				$author->id = $author->lastId();
+			}else{
+				$author->name = $value;
+				$author->save();
+			}
+			$$name = $author->id;
+//			var_dump($$name);die;
+			return $$name;
 		}
 	}
 	
@@ -38,6 +50,15 @@ class News
 			return Author::findByID($this->author_id);
 		}
 		return null;
+	}
+	public function __isset($name)
+	{
+		// TODO: Implement __set() method.
+		if('author' == $name){
+//			$id = Author::findByID($this->author_id);
+			return !empty($this->author_id);
+		}
+		return false;
 	}
 	
 	const TABLE = 'news';

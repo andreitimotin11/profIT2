@@ -64,7 +64,7 @@
 <body>
 <h1>News:</h1>
 <?php
-foreach ($data as $article):
+foreach ($news as $article):
 	
 	?>
     <div class="news">
@@ -73,7 +73,7 @@ foreach ($data as $article):
            href="<?php echo 'http://profit/PHP2/Admin.php?id=' . $article->id; ?>"><?php echo $article->title; ?></a>
 			</span>
         <p class="author">
-                by <span><?= $article->author?></span>
+                by <span><?= $article->author->name?></span>
         </p>
         <p> <?php echo $article->text; ?></p>
         <div class="button">

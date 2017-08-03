@@ -44,7 +44,7 @@
 		<input type="hidden" name="id" value="<?=$news->id?>">
 	</label><br>
     <label> Author
-        <input class="title" name="author" type="text" value="<?=$news->author?>">
+        <input class="title" name="author" type="text" value="<?=$news->author->name ?>">
     </label><br>
 	<textarea name="text" cols="120" rows="20"><?=$news->text?></textarea>
 	<div class="button">

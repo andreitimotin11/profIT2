@@ -9,28 +9,10 @@
 * Изучите интерфейс Iterator и реализуйте его в своем приложении
 */
 require __DIR__ . '/autoload.php';
-/*
+
 $data =\App\Models\News::findAll();
 
-include __DIR__ . '/templates/news.php';
-//$users =\App\Models\User::findByID(1);
-$db =  \App\Db::instance();
-$db->execute('CREATE TABLE roo(id SERIAL)');
-
-//$user = new \App\Models\User();
-//$user->name = 'Vasya';
-//$user->email = 'v@pupkin.com';*/
-//$user->insert();
-//$config = App\Config::instance();
-//echo $config->data['db']['name'];
-$view = new \App\View();
-$view->title = 'My cool site';
-$view->users = \App\Models\User::findAll();
-//echo $view->render(__DIR__ . '/App/templates/index.php');
-//$news = new \App\Models\News();
-
-//$news->author = 'Jorik';
-//$news->title = 'Jorik';
-//$news->text = 'Jorik';
-//$news->insert();
-
+$controller = new \App\Controllers\News();
+$controller->action('Index');
+//$view->users = \App\Models\User::findAll();
+//echo count($view) ;

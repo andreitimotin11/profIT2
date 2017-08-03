@@ -8,8 +8,8 @@
 
 namespace App;
 
-
 class View
+implements \Countable
 {
 	use SetTrait;
 	
@@ -30,5 +30,9 @@ class View
 		$content = ob_get_contents();
 		ob_end_clean();
 		return $content;
+	}
+	public function count()
+	{
+		return count($this->data);
 	}
 }
