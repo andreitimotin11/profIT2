@@ -7,16 +7,44 @@
  */
 
 namespace App\Models;
-
+/**
+ * Class News
+ * @package App\Models
+ * @property \App\Models\Author $author
+ */
 
 class News
 	extends Model
 {
+	protected $data = [];
+	public function __set($name, $value)
+	{
+		// TODO: Implement __set() method.
+		if('author' == $name){
+			$this->data[$name] = $value;
+		}
+	}
+	
+	/**
+	 * LAZY LOAD
+	 *
+	 * @param $name
+	 * @return null|object
+	 */
+	public function __get($name)
+	{
+		// TODO: Implement __get() method.		
+		if('author' == $name){
+			return Author::findByID($this->author_id);
+		}
+		return null;
+	}
+	
 	const TABLE = 'news';
 	public $id;
 	public $title;
 	public $text;
-	public $author;
+	public $author_id;
 	
 	public function getArticleById($id)
 	{

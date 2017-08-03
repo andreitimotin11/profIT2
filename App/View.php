@@ -11,19 +11,7 @@ namespace App;
 
 class View
 {
-	protected $data = [];
-	
-	public function __set($k, $v)
-	{
-		// TODO: Implement __set() method.
-		$this->data[$k] = $v;
-	}
-	
-	public function __get($k)
-	{
-		// TODO: Implement __get() method.
-		return $this->data[$k];
-	}
+	use SetTrait;
 	
 	public function display($template)
 	{

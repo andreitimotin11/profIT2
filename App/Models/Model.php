@@ -24,6 +24,10 @@ abstract class Model
 //	В абстрактной модели добавьте метод public static findById($id).
 // Он должен вернуть ОДНУ запись из таблицы данной модели, с указанным первичным ключом.
 // Или false, если таковой записи не нашлось.
+	/**
+	 * @param $id
+	 * @return object
+	 */
 	public static function findByID($id)
 	{
 		$query = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id ';
@@ -32,8 +36,10 @@ abstract class Model
 		$result = $db->query($query, static::class, $arr);
 		if ($result) {
 			return $result[0];
+		}else{
+			return false;
 		}
-		return false;
+		
 		
 	}
 	
