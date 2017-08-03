@@ -11,8 +11,8 @@ class Db
 {
 	use Singleton;
 	protected $dbh;
-
-protected function __construct()
+	
+	protected function __construct()
 	{
 		$this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
 //		var_dump($this->dbh);
@@ -26,7 +26,7 @@ protected function __construct()
 		return $res;
 	}
 	
-	public function query($sql, $class,$param = [])
+	public function query($sql, $class, $param = [])
 	{
 		$sth = $this->dbh->prepare($sql);
 		$res = $sth->execute($param);
@@ -35,4 +35,13 @@ protected function __construct()
 		}
 		return [];
 	}
+	
+	public function lastId()
+	{
+		
+//		var_dump($this->dbh->lastInsertId());
+		return $this->dbh->lastInsertId();
+	}
+	
+	
 }
