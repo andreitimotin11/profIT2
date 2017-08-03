@@ -1,18 +1,7 @@
 <?php
-/*
-Добавьте к своим данным еще одну таблицу - авторы новостей (authors). В таблице новостей, соответственно, добавите поле author_id. Модифицируйте модель новостей следующим образом:
-Если запрашивается поле ->author, то сначала проверяем поле ->author_id
-Если оно не пусто - делаем запрос к таблице authors и возвращаем результат в виде объекта класса Author
-Не забудьте снабдить модели соответствующим PHPDoc.
-Измените шаблоны своего приложения, добавьте везде вывод авторов новостей
-* Изучите интерфейс SPL ArrayAccess ( http://php.net/manual/ru/class.arrayaccess.php ) Придумайте применение этому поведению, реализуйте его в каком-либо классе своего приложения
-* Изучите интерфейс Iterator и реализуйте его в своем приложении
-*/
+
 require __DIR__ . '/autoload.php';
-
-$data =\App\Models\News::findAll();
-
 $controller = new \App\Controllers\News();
-$controller->action('Index');
-//$view->users = \App\Models\User::findAll();
-//echo count($view) ;
+
+$action = $_GET['action']?: 'Index';
+$controller->action($action);
