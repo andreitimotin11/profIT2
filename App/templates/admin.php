@@ -34,6 +34,12 @@
             font-size: 22px;
             color: darkblue;
         }
+        .author span{
+            font-size: 14px;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
+        }
 
         a button.delete {
             background-color: rgba(255, 56, 61, 100);
@@ -66,6 +72,9 @@ foreach ($data as $article):
 		<a class="link"
            href="<?php echo 'http://profit/PHP2/Admin.php?id=' . $article->id; ?>"><?php echo $article->title; ?></a>
 			</span>
+        <p class="author">
+                by <span><?= $article->author?></span>
+        </p>
         <p> <?php echo $article->text; ?></p>
         <div class="button">
             <a class="link"

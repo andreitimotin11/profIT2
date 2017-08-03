@@ -14,39 +14,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<style>
-		input.title{
-			width: 900px;
-		}
-	</style>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Admin Panel</title>
-	
-	<!-- Bootstrap -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <style>
+        input.title {
+            width: 900px;
+        }
+        form textarea{
+            margin: 12px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 <h1>Add News:</h1>
 
 <form action="Admin.php" method="post">
-	<label>
-		<input class="title" name="title" type="text" value="">
-		<input type="hidden" name="id" value="">
-	</label><br>
-	<textarea name="text" cols="120" rows="20"></textarea>
-	<div class="button">
-		<button type="submit">SUBMIT</button>
-	</div>
+    <label> News Title
+        <input class="title" name="title" type="text" value="">
+        <input type="hidden" name="id" value="">
+    </label><br>
+    <label> Author
+        <input class="title" name="author" type="text" value="">
+        <input type="hidden" name="id" value="">
+    </label><br>
+    <label for="text">  News Text</label><br>
+    <textarea id="text" name="text" cols="120" rows="20"></textarea>
+    
+    <div class="button">
+        <button type="submit">SUBMIT</button>
+    </div>
 </form>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

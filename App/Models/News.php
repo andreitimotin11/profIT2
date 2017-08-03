@@ -13,7 +13,7 @@ class News
 	extends Model
 {
 	const TABLE = 'news';
-//	public $id;
+	public $id;
 	public $title;
 	public $text;
 	public $author;
@@ -21,7 +21,6 @@ class News
 	public function getArticleById($id)
 	{
 		$res = parent::findByID($id);
-//		var_dump($res);die;
 		return $res;
 	}
 	public function insert()

@@ -36,13 +36,16 @@
 	<![endif]-->
 </head>
 <body>
-<h1>Add News:</h1>
+<h1>Edit News:</h1>
 
 <form action="Admin.php" method="post">
 	<label>
 		<input class="title" name="title" type="text" value="<?=$news->title?>">
 		<input type="hidden" name="id" value="<?=$news->id?>">
 	</label><br>
+    <label> Author
+        <input class="title" name="author" type="text" value="<?=$news->author?>">
+    </label><br>
 	<textarea name="text" cols="120" rows="20"><?=$news->text?></textarea>
 	<div class="button">
 		<button type="submit">SUBMIT</button>

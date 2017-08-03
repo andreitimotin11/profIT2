@@ -64,10 +64,6 @@ abstract class Model
 			') ';
 		$db = Db::instance();
 		$db->execute($sql, $values);
-		$this->id = $db->lastId();
-
-//		var_dump($db->lastId());die;
-//		echo $sql;
 	}
 	
 	public function update()
@@ -105,9 +101,6 @@ abstract class Model
 		} else {
 			$this->insert();
 		}
-
-
-//		if (empty($this->id))
 	}
 	
 	public static function existsInTable($id)
@@ -128,9 +121,7 @@ abstract class Model
 	}
 	public function lastId(){
 		$db = Db::instance();
-		$db->query('SELECT * FROM ' . static::TABLE, static::class);
 		$this->id = $db->lastId();
 		return $this->id;
-//		var_dump($id);die;
 	}
 }

@@ -38,7 +38,6 @@ class Db
 	
 	public function lastId()
 	{
-		
 //		var_dump($this->dbh->lastInsertId());
 		return $this->dbh->lastInsertId();
 	}

@@ -17,7 +17,6 @@ class View
 	{
 		// TODO: Implement __set() method.
 		$this->data[$k] = $v;
-		
 	}
 	
 	public function __get($k)
