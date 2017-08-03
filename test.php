@@ -11,7 +11,10 @@ require __DIR__ . '/autoload.php';
 //var_dump($s);
 //var_dump($d);
 
-$news = \App\Models\News::findAll();
+//$news = \App\Models\News::findAll();
 //var_dump($news);
-var_dump($news[1]->author);
-
+//var_dump($news[1]->author);
+//$ex = new Exception('Mesaj despre exceptie');
+//var_dump($ex);
+//var_dump($ex->getMessage());
+//throw $ex;

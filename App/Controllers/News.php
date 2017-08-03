@@ -12,6 +12,7 @@ namespace App\Controllers;
 use App\View;
 
 class News
+	extends Controller
 {
 	protected $view;
 	
@@ -20,16 +21,11 @@ class News
 		$this->view = new View();
 	}
 	
-	public function action($action)
-	{
-		$methodName = 'action' . $action;
-//		$this->beforeAction();
-		return $this->$methodName();
-	}
 	
 	protected function beforeAction()
 	{
-		echo 'Contor';
+		$ex = new \Exception('Mesaj despre exceptie');
+//		throw $ex;
 	}
 	
 	protected function actionIndex()
@@ -40,10 +36,17 @@ class News
 		$this->view->display(__DIR__ . '/../templates/index.php');
 	}
 	
-	protected function actionOne()
+	protected function actionOne($params)
 	{
-		$id = (int)$_GET['id'];
-		$this->view->article = \App\Models\News::findByID($id);
+//		var_dump($params);
+		foreach ($params as $param) {
+			$arr = explode('=', $param);
+			$var_name = $arr[0];
+			$var_value = $arr[1];
+			$$var_name = $var_value;
+		}
+		
+		$this->view->article = \App\Models\News::findByID((int)$id);
 		$this->view->display(__DIR__ . '/../templates/one.php');
 	}
 }
