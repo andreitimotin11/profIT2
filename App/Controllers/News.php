@@ -9,6 +9,9 @@
 namespace App\Controllers;
 
 
+use App\Db;
+use App\Exceptions\Core;
+use App\MultiException;
 use App\View;
 
 class News
@@ -24,7 +27,7 @@ class News
 	
 	protected function beforeAction()
 	{
-		$ex = new \Exception('Mesaj despre exceptie');
+		$ex = new \App\Exceptions\Db('Mesaj despre exceptie');
 //		throw $ex;
 	}
 	
@@ -48,5 +51,17 @@ class News
 		
 		$this->view->article = \App\Models\News::findByID((int)$id);
 		$this->view->display(__DIR__ . '/../templates/one.php');
+	}
+	
+	protected function actionCreate()
+	{
+		try{
+			$article = new \App\Models\News();
+			$article->fill([]);
+			$article->save();
+		}catch (\App\Exceptions\MultiException $e){
+			$this->view->errors = $e;
+		}
+		$this->view->display(__DIR__ . '/../templates/create.php');
 	}
 }

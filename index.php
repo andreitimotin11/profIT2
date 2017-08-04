@@ -32,7 +32,29 @@ $controller = new \App\Controllers\News();
 $action = $_GET['action']?: 'Index';
 try{
 	$controller->action($action,$params);
-}catch (Exception $e){
-	echo 'A aparut exceptie '. $e->getMessage();
+}catch (\App\Exceptions\Core $e){
+	echo 'A aparut exceptie a aplicatiei' . $e->getMessage();
+}catch (\PDOException $r){
+	echo 'Ceva nu e in regula cu BD!' . $r->getMessage();
+}finally{
+	echo 'Urra!';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

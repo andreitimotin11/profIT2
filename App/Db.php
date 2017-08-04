@@ -14,7 +14,8 @@ class Db
 	
 	protected function __construct()
 	{
-		$this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
+		
+			$this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=test', 'root', '');
 //		var_dump($this->dbh);
 	}
 	

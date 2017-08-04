@@ -7,14 +7,12 @@
  */
 require __DIR__ . '/autoload.php';
 //$s = \App\Singleton::instance();
-//$d = \App\Singleton::instance();
-//var_dump($s);
-//var_dump($d);
 
-//$news = \App\Models\News::findAll();
-//var_dump($news);
-//var_dump($news[1]->author);
-//$ex = new Exception('Mesaj despre exceptie');
-//var_dump($ex);
-//var_dump($ex->getMessage());
-//throw $ex;
+$a = new \App\Collection();
+$a[1] = 1;
+$a[11] = 11;
+$a[2] = 234;
+foreach ($a as $el){
+	echo $el;
+}
+//var_dump($a);

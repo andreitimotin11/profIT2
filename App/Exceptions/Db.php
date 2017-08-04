@@ -9,7 +9,8 @@
 namespace App\Exceptions;
 
 
-class DB
+class Db
+extends \Exception
 {
 	
 }
